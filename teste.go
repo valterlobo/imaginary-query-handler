@@ -34,6 +34,18 @@ func main() {
 	result := queryEngine.Query("hello.ola", queryRequest )
 	fmt.Println(result)
 	//fmt.Println(error)
+
+	// resquest  não existe  ?
+	result2 := queryEngine.Query("hello.ola22222", queryRequest )
+	fmt.Println(result2)
+
+	// query resquest  não existe  ?
+	fmt.Println("./.......query resquest  não existe")
+	var queryRequest2 query.Resquest
+	result3 := queryEngine.Query("hello.ola", queryRequest2 )
+
+	fmt.Println(result3)
+	fmt.Println("/........query resquest  não existe")
 }
 
 type HelloQueryHandler struct {
@@ -48,6 +60,7 @@ func (ola HelloQueryHandler) Handle(queryRequest query.Resquest) query.Response 
 	fmt.Println(queryRequest)
 	fmt.Println(queryRequest.Sort)
 	fmt.Println(queryRequest.Filter)
+
 	var queryResponse = query.Response{UUID: "2332323" , RequestUUID: queryRequest.UUID}
 	return queryResponse
 }
